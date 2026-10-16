@@ -42,7 +42,7 @@ public class VideojuegoJdbc {
         return videojuego;
     }
 
-    //  Método LISTAR
+    //  Método LISTAR-------------------------------------------------------------------------------
     public List<Videojuego> listar() {
         List<Videojuego> lista = new ArrayList<>();
         String sql = "SELECT codigo, nombre, plataforma, precio, disponible, genero FROM videojuegos";
@@ -72,7 +72,7 @@ public class VideojuegoJdbc {
         return lista;
     }
 
-    //  Método BUSCAR por código
+    //  Método BUSCAR por código----------------------------------------------------------------
     public Videojuego buscarPorCodigo(String codigoBuscado) {
         Videojuego videojuego = null;
         String sql = "SELECT codigo, nombre, plataforma, precio, disponible, genero FROM videojuegos WHERE codigo = ?";
@@ -104,8 +104,10 @@ public class VideojuegoJdbc {
         }
         return videojuego;
     }
+    
+    
 
-    //  Método ACTUALIZAR
+    //  Método ACTUALIZAR-----------------------------------------------------------------------------
     public Videojuego actualizar(Videojuego videojuego) {
         String sql = "UPDATE videojuegos SET nombre = ?, plataforma = ?, precio = ?, disponible = ?, genero = ? WHERE codigo = ?";
 
@@ -134,7 +136,7 @@ public class VideojuegoJdbc {
         return videojuego;
     }
 
-    //  Método ELIMINAR
+    //  Método ELIMINAR----------------------------------------------------------------------
     public boolean eliminar(String codigo) {
         String sql = "DELETE FROM videojuegos WHERE codigo = ?";
         boolean eliminado = false;

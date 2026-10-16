@@ -10,7 +10,6 @@ import org.apache.logging.log4j.Logger;
 public class Conexion {
 
     private static final Logger LOGGER = LogManager.getLogger(Conexion.class);
-
     
     private static final String URL = "jdbc:postgresql://localhost:5432/Apijdbc";
     private static final String USUARIO = "postgres";
@@ -19,13 +18,12 @@ public class Conexion {
     public static Connection conectar() {
         Connection con = null;
         try {
-            
             con = DriverManager.getConnection(URL, USUARIO, CLAVE);
-            LOGGER.info("¡Conexión exitosa a la base de datos PostgreSQL!");
+            LOGGER.info("Conexión realizada");
         } catch (SQLException e) {
-            LOGGER.error("Error de SQL al intentar conectar a la base de datos: {}", e.getMessage());
+            LOGGER.error("Error al conectar: {}", e.getMessage());
         } catch (Exception e) {
-            LOGGER.error("Error general al conectar a la base de datos: {}", e.getMessage());
+            LOGGER.error("Error general: {}", e.getMessage());
         }
         return con;
     }
